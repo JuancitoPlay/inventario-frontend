@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'StoreListTitle',
+  name: 'ArticleListTitle',
   props: ['titles']
 }
 </script>

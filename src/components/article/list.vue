@@ -1,26 +1,26 @@
 <template>
   <table class="table table is-fullwidth table is-bordered is-hoverable table is-striped">
-    <StoreListTitle :titles="titles" />
-    <StoreListBody @newToEdit="handleNewToEdit" @newToSee="handleNewToSee" :body="body"/>
+    <ArticleListTitle :titles="titles" />
+    <ArticleListBody @newToEdit="handleNewToEdit" @newToSee="handleNewToSee" :body="body"/>
   </table>
 </template>
 
 <script>
-import StoreListTitle from '@/components/article/list-title.vue'
-import StoreListBody from '@/components/article/list-body.vue'
+import ArticleListTitle from '@/components/article/list-title.vue'
+import ArticleListBody from '@/components/article/list-body.vue'
 export default {
-  name: 'StoreList',
+  name: 'ArticleList',
   props: ['titles', 'body'],
   components: {
-    StoreListTitle,
-    StoreListBody
+    ArticleListTitle,
+    ArticleListBody
   },
   methods: {
-    handleNewToEdit (store) {
-      this.$emit('newToEdit', store)
+    handleNewToEdit (article) {
+      this.$emit('newToEdit', article)
     },
-    handleNewToSee (store) {
-      this.$emit('newToSee', store)
+    handleNewToSee (article) {
+      this.$emit('newToSee', article)
     }
   }
 }

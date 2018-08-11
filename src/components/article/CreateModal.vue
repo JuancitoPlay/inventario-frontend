@@ -20,10 +20,10 @@ export default {
   }),
   methods: {
     async handleSave () {
-      console.log(this.form.description)
+      console.log(this.form)
       console.log({uri: config.uri})
       let client = new Client({uri: config.uri})
-      await client.saveStore(this.form)
+      await client.saveArticle(this.form)
       this.$emit('newSaved')
       this.handleCancel()
     },

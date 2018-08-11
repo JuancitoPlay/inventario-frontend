@@ -1,10 +1,13 @@
 <template>
   <div>
-    <InputText disabled="true"  label="Código" :value="store.almacenId" />
-    <InputText disabled="true"  label="Descripción" :value="store.descripcion" />
-    <InputText disabled="true"  label="Estado" :value="store.estado" />
-    <InputText disabled="true"  label="Creado" :value="formatDateFromNow(store.createdAt)" />
-    <InputText disabled="true"  label="Última Modificación" :value="formatDateFromNow(store.updatedAt)" />
+    <InputText disabled="true"  label="Código" :value="article.articuloId" />
+    <InputText disabled="true"  label="Descripción" :value="article.descripcion" />
+    <InputText disabled="true"  label="Almacen" :value="article.almacene.descripcion" />
+    <InputText disabled="true"  label="Inventario" :value="article.inventario.descripcion" />
+    <InputText disabled="true"  label="Cantidad" :value="article.cantidad" />
+    <InputText disabled="true"  label="Costo" :value="article.costo" />
+    <InputText disabled="true"  label="Creado" :value="formatDateFromNow(article.createdAt)" />
+    <InputText disabled="true"  label="Última Modificación" :value="formatDateFromNow(article.updatedAt)" />
   </div>
 </template>
 
@@ -16,7 +19,7 @@ export default {
   components: {
     InputText
   },
-  props: ['store'],
+  props: ['article'],
   data: () => ({
   }),
   methods: {

@@ -14,7 +14,7 @@ async function tokenGuard (to, from, next) {
     if (!validation.token) next('/login')
     next()
   } catch (error) {
-    next('/login')
+    next()
   }
 }
 Vue.use(Router)
@@ -36,7 +36,8 @@ export default new Router({
     {
       path: '/articulos',
       name: 'Articulos',
-      component: Article
+      component: Article,
+      beforeEnter: tokenGuard
     },
     {
       path: '/login',

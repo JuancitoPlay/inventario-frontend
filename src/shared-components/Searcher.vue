@@ -18,9 +18,12 @@ export default {
       let filtered = this.list.filter(i => {
         let keys = Object.keys(i)
         for (let iterator of keys) {
-          console.log(i[iterator].toLowerCase(), newValue.toLowerCase())
-          if (i[iterator].toLowerCase().search(newValue.toLowerCase()) !== -1) {
-            return true
+          if (typeof i[iterator] === 'string') {
+            console.log(i[iterator].toLowerCase(), newValue.toLowerCase(), typeof i[iterator] === 'string')
+
+            if ((i[iterator]).toLowerCase().search(newValue.toLowerCase()) !== -1) {
+              return true
+            }
           }
         }
         return false

@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'StoreListItem',
+  name: 'ArticleListItem',
   props: ['item', 'name']
 }
 </script>

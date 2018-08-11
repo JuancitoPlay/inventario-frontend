@@ -1,16 +1,16 @@
 <template>
-  <div class="store">
+  <div class="article">
     <Header @newList="handleNewList" @showModal="handleCreateShow" :list="list" />
-    <StoreList @newToEdit="handleEditShow" @newToSee="handleSeeShow"  :titles="titles" :body="body" />
-    <CreateModal @newSaved="setStores" :modalState="createModalState" :handleCancel="handleCreateShow" />
-    <EditModal @newEdited="setStores" :modalState="editModalState" :handleCancel="handleEditShow" :store="workingStore" />
-    <SeeModal  :modalState="seeModalState" :handleCancel="handleSeeShow" :store="workingStore" />
+    <ArticleList @newToEdit="handleEditShow" @newToSee="handleSeeShow"  :titles="titles" :body="body" />
+    <CreateModal @newSaved="setArticles" :modalState="createModalState" :handleCancel="handleCreateShow" />
+    <EditModal @newEdited="setArticles" :modalState="editModalState" :handleCancel="handleEditShow" :article="workingArticle" />
+    <SeeModal  :modalState="seeModalState" :handleCancel="handleSeeShow" :article="workingArticle" />
   </div>
 </template>
 
 <script>
 import Client from '@/client'
-import StoreList from '@/components/article/list.vue'
+import ArticleList from '@/components/article/list.vue'
 import config from '@/config'
 import CreateModal from '@/components/article/CreateModal.vue'
 import EditModal from '@/components/article/EditModal.vue'
@@ -22,37 +22,40 @@ export default {
     titles: [
       { id: 1, description: 'Código' },
       { id: 2, description: 'Descripción' },
-      { id: 3, description: 'Estado' },
-      { id: 4, description: '' }
+      { id: 6, description: 'Cantidad' },
+      { id: 3, description: 'Almacen' },
+      { id: 4, description: 'Costo' },
+      { id: 7, description: 'inventario' },
+      { id: 5, description: '' }
     ],
     body: [],
     list: [],
     createModalState: false,
     editModalState: false,
     seeModalState: false,
-    workingStore: {}
+    workingArticle: {}
   }),
   methods: {
     handleCreateShow () {
       this.createModalState = !this.createModalState
     },
-    async handleEditShow (store) {
-      this.setStores()
-      if (!this.editModalState) await this.getStore(store)
+    async handleEditShow (article) {
+      this.setArticles()
+      if (!this.editModalState) await this.getStore(article)
       this.editModalState = !this.editModalState
     },
-    async handleSeeShow (store) {
-      this.setStores()
-      if (!this.stModalState) await this.getStore(store)
+    async handleSeeShow (article) {
+      this.setArticles()
+      if (!this.seeModalState) await this.getStore(article)
       this.seeModalState = !this.seeModalState
     },
-    async setStores () {
+    async setArticles () {
       let client = new Client({uri: config.uri})
-      this.body = await client.getAllStores()
+      this.body = await client.getAllArticles()
     },
-    async getStore (store) {
+    async getStore (article) {
       let client = new Client({uri: config.uri})
-      this.workingStore = await client.getStoreById(store.almacenId)
+      this.workingArticle = await client.getArticleById(article.articuloId)
     },
     handleNewList (newList) {
       this.body = newList
@@ -60,12 +63,12 @@ export default {
     }
   },
   mounted: async function () {
-    await this.setStores()
+    await this.setArticles()
     let client = new Client({uri: config.uri})
-    this.list = await client.getAllStores()
+    this.list = await client.getAllArticles()
   },
   components: {
-    StoreList,
+    ArticleList,
     CreateModal,
     EditModal,
     Header,
@@ -76,7 +79,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .store {
+  .article {
     margin-right: 1em;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <Modal :save="handleSave" :is-active="modalState" :close="handleCancel" title="Editar Articulo">
-    <template slot="content"><EditForm :store="store" @newValue="handleForm"/></template>
+    <template slot="content"><EditForm :article="article" @newValue="handleForm"/></template>
   </Modal>
 </template>
 <script>
@@ -14,7 +14,7 @@ export default {
     Modal,
     EditForm
   },
-  props: ['modalState', 'handleCancel', 'store'],
+  props: ['modalState', 'handleCancel', 'article'],
   data: () => ({
     form: {}
   }),
@@ -23,8 +23,8 @@ export default {
       console.log(JSON.parse(JSON.stringify(this.form)))
       console.log({uri: config.uri})
       let client = new Client({uri: config.uri})
-      console.log({almacenId: this.store.almacenId}, JSON.parse(JSON.stringify(this.form)))
-      await client.updateStore({almacenId: this.store.almacenId}, {descripcion: this.form.description})
+      console.log({almacenId: this.article.articuloId}, JSON.parse(JSON.stringify(this.form)))
+      await client.updateArticle({articuloId: this.article.articuloId}, {descripcion: this.form.description})
       this.$emit('newEdited')
       this.handleCancel()
     },

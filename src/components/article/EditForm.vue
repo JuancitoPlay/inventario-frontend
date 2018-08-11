@@ -1,8 +1,8 @@
 <template>
   <div>
-    <InputText disabled="true" @newChange="handleChange" label="Código" :value="store.almacenId" />
-    <InputText @newChange="handleChange" label="Descripción" :value="store.descripcion" />
-    <InputText disabled="true" @newChange="handleChange" label="Estado" :value="store.estado" />
+    <InputText disabled="true" @newChange="handleChange" label="Código" :value="article.articuloId" />
+    <InputText @newChange="handleChange" label="Descripción" :value="article.descripcion" />
+    <InputText disabled="true" @newChange="handleChange" label="Estado" :value="article.estado" />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   components: {
     InputText
   },
-  props: ['store'],
+  props: ['article'],
   data: () => ({
     description: ''
   }),

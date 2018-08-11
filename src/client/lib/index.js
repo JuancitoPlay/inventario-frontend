@@ -2,12 +2,18 @@ import axios from 'axios'
 
 class Client {
   uri = null;
+  accountingUri = 'https://simpleaccountingapp-api.azurewebsites.net'
   constructor ({uri}) {
     console.log('initialized...')
     this.uri = uri
   }
   async getAllStores () {
     let endpoint = '/api/almacen/buscaralmacenes'
+    let response = await axios(this.uri + endpoint, {method: 'GET'})
+    return response.data
+  }
+  async getAllArticles () {
+    let endpoint = '/api/articulo/buscararticulos'
     let response = await axios(this.uri + endpoint, {method: 'GET'})
     return response.data
   }
@@ -29,7 +35,20 @@ class Client {
     let response = await axios(this.uri + endpoint, options)
     return response.data
   }
-
+  async saveArticle (article) {
+    article.proveedorId = 'f101523e-b3ad-44c3-ada4-3c45e63012e6'
+    article.precio = article.costo
+    console.log(article)
+    let endpoint = '/api/articulo/guardar'
+    let options = {
+      method: 'POST',
+      data: {
+        articulo: article
+      }
+    }
+    let response = await axios(this.uri + endpoint, options)
+    return response.data
+  }
   async getStoreById (id) {
     let endpoint = '/api/almacen/buscar'
     let options = {
@@ -39,6 +58,15 @@ class Client {
           almacenId: id
         }
       }
+    }
+    let response = await axios(this.uri + endpoint, options)
+    return response.data
+  }
+
+  async getArticleById (id) {
+    let endpoint = '/api/articulo/buscar/' + id
+    let options = {
+      method: 'GET'
     }
     let response = await axios(this.uri + endpoint, options)
     return response.data
@@ -74,6 +102,18 @@ class Client {
       data: {
         almacenViejo: oldStore,
         almacenNuevo: newStore
+      }
+    }
+    let response = await axios(this.uri + endpoint, options)
+    return response.data
+  }
+  async updateArticle (oldArticle, newArticle) {
+    let endpoint = '/api/almacen/modificar'
+    let options = {
+      method: 'PUT',
+      data: {
+        articuloViejo: oldArticle,
+        articuloNuevo: newArticle
       }
     }
     let response = await axios(this.uri + endpoint, options)
