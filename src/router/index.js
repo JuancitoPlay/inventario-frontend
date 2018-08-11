@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Store from '@/components/store'
 import Inventory from '@/components/inventory'
 import Article from '@/components/article'
+import Transaction from '@/components/transaction'
 import Login from '@/components/login'
 import config from '@/config'
 import Client from '@/client'
@@ -37,6 +38,11 @@ export default new Router({
       path: '/articulos',
       name: 'Articulos',
       component: Article
+    },
+    {
+      path: '/movimientos',
+      name: 'Movimientos',
+      component: Transaction
     },
     {
       path: '/login',
