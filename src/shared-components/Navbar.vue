@@ -60,6 +60,9 @@
       <router-link to="/inventarios" class="navbar-item">
         <span class="bd-emoji">📦</span> &nbsp;Inventarios
       </router-link>
+      <router-link to="/articulos" class="navbar-item">
+        <span class="bd-emoji"></span> &nbsp;Articulos
+      </router-link>
     </div>
   </div>
 </nav>
