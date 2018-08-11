@@ -52,6 +52,21 @@ class Client {
     let response = await axios(this.uri + endpoint, options)
     return response.data
   }
+  async getUser (user) {
+    try {
+      let endpoint = '/api/usuario/buscar'
+      let options = {
+        method: 'POST',
+        data: {
+          usuario: user
+        }
+      }
+      let response = await axios(this.uri + endpoint, options)
+      return response.data
+    } catch (error) {
+      console.log(error)
+    }
+  }
   async updateStore (oldStore, newStore) {
     let endpoint = '/api/almacen/modificar'
     let options = {
@@ -60,6 +75,26 @@ class Client {
         almacenViejo: oldStore,
         almacenNuevo: newStore
       }
+    }
+    let response = await axios(this.uri + endpoint, options)
+    return response.data
+  }
+  async signToken (user) {
+    let endpoint = '/api/token/sign'
+    let options = {
+      method: 'POST',
+      data: {
+        datos: user
+      }
+    }
+    let response = await axios(this.uri + endpoint, options)
+    return response.data
+  }
+  async validateToken () {
+    let endpoint = '/api/token/validate'
+    let options = {
+      method: 'GET',
+      headers: {Authorization: localStorage._t}
     }
     let response = await axios(this.uri + endpoint, options)
     return response.data
