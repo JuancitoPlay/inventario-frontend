@@ -63,6 +63,9 @@
       <router-link to="/articulos" class="navbar-item">
         <span class="bd-emoji"></span> &nbsp;Articulos
       </router-link>
+      <router-link to="/movimientos" class="navbar-item">
+        <span class="bd-emoji"></span> &nbsp;Transactions
+      </router-link>
     </div>
   </div>
 </nav>
