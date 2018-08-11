@@ -4,7 +4,19 @@ import Store from '@/components/store'
 import Inventory from '@/components/inventory'
 import Article from '@/components/article'
 import Login from '@/components/login'
-
+import config from '@/config'
+import Client from '@/client'
+async function tokenGuard (to, from, next) {
+  try {
+    let client = new Client({ uri: config.uri })
+    let validation = await client.validateToken()
+    console.log(validation)
+    if (!validation.token) next('/login')
+    next()
+  } catch (error) {
+    next('/login')
+  }
+}
 Vue.use(Router)
 
 export default new Router({
@@ -12,12 +24,14 @@ export default new Router({
     {
       path: '/stores',
       name: 'Stores',
-      component: Store
+      component: Store,
+      beforeEnter: tokenGuard
     },
     {
       path: '/inventarios',
       name: 'Inventarios',
-      component: Inventory
+      component: Inventory,
+      beforeEnter: tokenGuard
     },
     {
       path: '/articulos',
