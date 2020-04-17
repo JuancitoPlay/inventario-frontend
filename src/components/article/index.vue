@@ -1,5 +1,6 @@
 <template>
   <div class="article">
+    <Navbar/>
     <Header @newList="handleNewList" @showModal="handleCreateShow" :list="list" />
     <ArticleList @newToEdit="handleEditShow" @newToSee="handleSeeShow"  :titles="titles" :body="body" />
     <CreateModal @newSaved="setArticles" :modalState="createModalState" :handleCancel="handleCreateShow" />
@@ -16,6 +17,7 @@ import CreateModal from '@/components/article/CreateModal.vue'
 import EditModal from '@/components/article/EditModal.vue'
 import SeeModal from '@/components/article/SeeModal.vue'
 import Header from '@/components/article/Header.vue'
+import Navbar from '@/shared-components/Navbar.vue'
 export default {
   name: 'Article',
   data: () => ({
@@ -72,7 +74,8 @@ export default {
     CreateModal,
     EditModal,
     Header,
-    SeeModal
+    SeeModal,
+    Navbar
   }
 }
 </script>

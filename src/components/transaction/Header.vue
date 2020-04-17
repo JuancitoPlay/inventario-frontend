@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <!-- <Searcher @newFiltered="handleFilter" :list="list" /> -->
+    <Searcher @newFiltered="handleFilter" :list="list" />
     <!-- <button @click.prevent="handleCreateClick" class="button is-success">Crear Nuevo</button> -->
   </div>
 </template>

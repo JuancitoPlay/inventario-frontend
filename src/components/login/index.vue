@@ -22,7 +22,8 @@ export default {
   },
   data: () => ({
     user: '',
-    password: ''
+    password: '',
+    isLogged: false
   }),
   methods: {
     async handleLogin () {
@@ -44,6 +45,10 @@ export default {
     handlePassword (newPassword) {
       this.password = newPassword
     }
+  },
+  beforeMount () {
+    if (!localStorage || localStorage === '') this.isLogged = false
+    else this.isLogged = true
   }
 }
 </script>

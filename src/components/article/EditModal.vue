@@ -20,16 +20,15 @@ export default {
   }),
   methods: {
     async handleSave () {
-      console.log(JSON.parse(JSON.stringify(this.form)))
-      console.log({uri: config.uri})
       let client = new Client({uri: config.uri})
       console.log({almacenId: this.article.articuloId}, JSON.parse(JSON.stringify(this.form)))
-      await client.updateArticle({articuloId: this.article.articuloId}, {descripcion: this.form.description})
+      await client.updateArticle({articuloId: this.article.articuloId}, {form: this.form})
       this.$emit('newEdited')
       this.handleCancel()
     },
     handleForm (form) {
       this.form = form
+      console.log(this.form)
     }
   }
 }

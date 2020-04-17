@@ -1,5 +1,6 @@
 <template>
   <div class="store">
+    <Navbar />
     <Header @newList="handleNewList" @showModal="handleCreateShow" :list="list" />
     <StoreList @newToEdit="handleEditShow" @newToSee="handleSeeShow"  :titles="titles" :body="body" />
     <CreateModal @newSaved="setStores" :modalState="createModalState" :handleCancel="handleCreateShow" />
@@ -16,6 +17,7 @@ import CreateModal from '@/components/store/CreateModal.vue'
 import EditModal from '@/components/store/EditModal.vue'
 import SeeModal from '@/components/store/SeeModal.vue'
 import Header from '@/components/store/Header.vue'
+import Navbar from '@/shared-components/Navbar.vue'
 export default {
   name: 'Store',
   data: () => ({
@@ -69,7 +71,8 @@ export default {
     CreateModal,
     EditModal,
     Header,
-    SeeModal
+    SeeModal,
+    Navbar
   }
 }
 </script>

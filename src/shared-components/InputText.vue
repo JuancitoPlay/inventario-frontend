@@ -2,7 +2,7 @@
   <div class="field">
     <div class="control">
       <label>{{label}}</label>
-      <input :readonly="disabled" :placeholder="placeholder" class="input is-info" @keyup.prevent="handleChange" :type="type || 'text'" :value="value">
+      <input :disabled="disabled" :placeholder="placeholder" class="input is-info" @keyup.prevent="handleChange" :type="type || 'text'" :value="value">
     </div>
 </div>
 </template>

@@ -1,3 +1,3 @@
 export default {
-  uri: 'http://localhost:3005'
+  uri: 'http://161.35.49.193:3005'
 }

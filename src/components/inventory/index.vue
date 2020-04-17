@@ -1,5 +1,6 @@
 <template>
   <div class="inventory">
+    <Navbar />
     <InventoryList @newToEdit="handleEditShow" @newToSee="handleSeeShow"  :titles="titles" :body="body" />
     <EditModal @newEdited="setInventories" :modalState="editModalState" :handleCancel="handleEditShow" :inventory="workingInventory" />
     <SeeModal  :modalState="seeModalState" :handleCancel="handleSeeShow" :inventory="workingInventory" />
@@ -13,6 +14,7 @@ import config from '@/config'
 import EditModal from '@/components/inventory/EditModal.vue'
 import SeeModal from '@/components/inventory/SeeModal.vue'
 import Header from '@/components/inventory/Header.vue'
+import Navbar from '@/shared-components/Navbar.vue'
 export default {
   name: 'Inventory',
   data: () => ({
@@ -61,7 +63,8 @@ export default {
     InventoryList,
     EditModal,
     Header,
-    SeeModal
+    SeeModal,
+    Navbar
   }
 }
 </script>

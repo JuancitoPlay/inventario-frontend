@@ -2,7 +2,7 @@
   <nav class="navbar ">
   <div class="navbar-brand">
     <a class="navbar-item" href="#">
-      <img src="../assets/logo.jpeg" alt="">
+     INVENTARIO
     </a>
 
     <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
@@ -25,7 +25,7 @@
 
   </div>
 
-  <div id="navMenubd-example" :class="`navbar-menu ${mobileDisplay}`">
+  <div v-if="isLogged" id="navMenubd-example" :class="`navbar-menu ${mobileDisplay}`">
     <div class="navbar-start">
       <div class="navbar-item has-dropdown is-hoverable">
         <!-- <div class="navbar-link">
@@ -61,10 +61,16 @@
         <span class="bd-emoji">📦</span> &nbsp;Inventarios
       </router-link>
       <router-link to="/articulos" class="navbar-item">
-        <span class="bd-emoji"></span> &nbsp;Articulos
+        <span class="bd-emoji">📦</span> &nbsp;Articulos
       </router-link>
       <router-link to="/movimientos" class="navbar-item">
-        <span class="bd-emoji"></span> &nbsp;Transactions
+        <span class="bd-emoji">🗃️</span> &nbsp;Transacciones
+      </router-link>
+      <router-link to="/entrada-diario" class="navbar-item">
+        <span class="bd-emoji">🤑</span> &nbsp;Contabilidad
+      </router-link>
+      <router-link to="/logout" class="navbar-item">
+        <span class="bd-emoji">🏃</span> &nbsp;Cerrar Sesión
       </router-link>
     </div>
   </div>
@@ -80,8 +86,13 @@ export default {
     }
   },
   data: () => ({
-    mobileDisplay: ''
-  })
+    mobileDisplay: '',
+    isLogged: (localStorage && localStorage !== '')
+  }),
+  beforeMount () {
+    if (!localStorage || localStorage === '') this.isLogged = false
+    else this.isLogged = true
+  }
 }
 </script>
 <style scoped>
@@ -92,5 +103,10 @@ export default {
 .navbar-item.is-mega .is-mega-menu-title {
     margin-bottom: 0;
     padding: .375rem 1rem;
+  }
+  .navbar {
+    background-color: #29b6f6;
+    margin-bottom:3em;
+    font-weight: bold;
   }
 </style>

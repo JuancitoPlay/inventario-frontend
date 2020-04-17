@@ -5,6 +5,7 @@ import Inventory from '@/components/inventory'
 import Article from '@/components/article'
 import Transaction from '@/components/transaction'
 import Login from '@/components/login'
+import JournalEntry from '@/components/journal-entry'
 import config from '@/config'
 import Client from '@/client'
 async function tokenGuard (to, from, next) {
@@ -15,7 +16,7 @@ async function tokenGuard (to, from, next) {
     if (!validation.token) next('/login')
     next()
   } catch (error) {
-    next()
+    next('/login')
   }
 }
 Vue.use(Router)
@@ -43,12 +44,33 @@ export default new Router({
     {
       path: '/movimientos',
       name: 'Movimientos',
-      component: Transaction
+      component: Transaction,
+      beforeEnter: tokenGuard
     },
     {
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/entrada-diario',
+      name: 'Entrada Diario',
+      component: JournalEntry,
+      beforeEnter: tokenGuard
+    },
+    {
+      path: '/logout',
+      name: 'Entrada Diario',
+      component: JournalEntry,
+      beforeEnter: function (to, from, next) {
+        localStorage._t = ''
+        next('/login')
+      }
     }
   ]
 })

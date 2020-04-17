@@ -20,7 +20,6 @@ export default {
         for (let iterator of keys) {
           if (typeof i[iterator] === 'string') {
             console.log(i[iterator].toLowerCase(), newValue.toLowerCase(), typeof i[iterator] === 'string')
-
             if ((i[iterator]).toLowerCase().search(newValue.toLowerCase()) !== -1) {
               return true
             }

@@ -1,0 +1,33 @@
+[debug] [2018-08-14T14:42:42.092Z] ----------------------------------------------------------------------
+[debug] [2018-08-14T14:42:42.094Z] Command:       /usr/local/Cellar/node/10.5.0_1/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-08-14T14:42:42.095Z] CLI Version:   4.1.0
+[debug] [2018-08-14T14:42:42.095Z] Platform:      darwin
+[debug] [2018-08-14T14:42:42.095Z] Node Version:  v10.5.0
+[debug] [2018-08-14T14:42:42.095Z] Time:          Tue Aug 14 2018 10:42:42 GMT-0400 (Atlantic Standard Time)
+[debug] [2018-08-14T14:42:42.095Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-14T14:42:42.106Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-14T14:42:42.107Z] > authorizing via signed-in user
+[debug] [2018-08-14T14:42:42.108Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-08-14T14:42:42.108Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-08-14T14:42:42.368Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-14T14:42:42.385Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/my-first-proyect-7d0f5  
+ 
+[debug] [2018-08-14T14:42:42.882Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-14T14:42:42.883Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/my-first-proyect-7d0f5/tokens  
+ 
+[debug] [2018-08-14T14:42:43.356Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'my-first-proyect-7d0f5'...
+[info] 
+[info] i  deploying hosting
+[debug] [2018-08-14T14:42:43.849Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/my-first-proyect-7d0f5/versions  
+
+[debug] [2018-08-14T14:42:45.499Z] <<< HTTP RESPONSE 200
+[info] i  hosting: found 2 files in public directory
+[debug] [2018-08-14T14:42:45.506Z] [hosting] hash cache [0] not populated
+[debug] [2018-08-14T14:42:45.515Z] [hosting] hash cache [0] stored for 2 files
+[debug] [2018-08-14T14:42:45.516Z] [hosting][hash queue][FINAL]
+[debug] [2018-08-14T14:42:45.516Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/my-first-proyect-7d0f5/versions/6625e426d7bac2ae:populateFiles  
+ <request body omitted>
