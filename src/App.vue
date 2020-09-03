@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <Navbar v-if="showNavbar"/>
+    <!-- <Navbar v-if="showNavbar"/> -->
     <router-view/>
   </div>
 </template>

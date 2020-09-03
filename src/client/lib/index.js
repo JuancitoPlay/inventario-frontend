@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 class Client {
-  uri ='';
+  uri = 'http://161.35.118.37:3005';
   accountingUri = 'https://sistemacontabilidad5.azurewebsites.net'
-  constructor ({uri}) {
+  constructor () {
     console.log('initialized...')
-    this.uri = uri
+    // this.uri = uri
   }
   async getAllStores () {
     let endpoint = '/api/almacen/buscaralmacenes'
