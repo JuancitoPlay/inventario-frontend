@@ -1,5 +1,5 @@
 <template>
-  <Modal :save="handleSave" :is-active="modalState" :close="handleCancel" title="Crear Nuevo Articulo">
+  <Modal :save="handleSave" :is-active="modalState" :close="handleCancel" title="Crear nuevo articulo">
     <template slot="content"><CreateForm @newValue="handleForm"/></template>
   </Modal>
 </template>

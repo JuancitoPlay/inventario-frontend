@@ -28,7 +28,7 @@ export default {
       { id: 3, description: 'Almacen' },
       { id: 4, description: 'Costo' },
       { id: 7, description: 'inventario' },
-      { id: 5, description: '' }
+      { id: 5, description: ' ' }
     ],
     body: [],
     list: [],
